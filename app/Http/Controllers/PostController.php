@@ -7,6 +7,21 @@ use App\Post;
 
 class PostController extends Controller
 {
+
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index' , 'show'] ]);
+        
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +29,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::find(2);
-        
-        $id = auth()->user()->id;
         $all = Post::orderBy('created_at','asc')->paginate(2);
-        return view('Post.index')->with(['posts'=> $all , 'id'=>$id]);
+        return view('Post.index')->with('posts', $all );
         
     }
 
