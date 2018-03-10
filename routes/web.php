@@ -25,4 +25,10 @@ Route::resource('post','PostController');
 
 Auth::routes();
 
+Route::prefix('admin')->group(function(){
+    Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
+});
+
 Route::get('/home', 'PostController@index');
+Route::get('/admin', 'HomeController@index');
