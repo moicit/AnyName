@@ -11,8 +11,5 @@ class products extends Model
         return $this->hasMany('App\Cart');
     }
 
-    public function admin()
-    {
-        return $this->belongsTo("App\Admin");
-    }
+  
 }

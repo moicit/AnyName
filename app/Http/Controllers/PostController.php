@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except'=>['index' , 'show'] ]);
+        $this->middleware('auth',['except'=>[ 'show','test'] ]);
         
     }
 
@@ -110,6 +111,25 @@ class PostController extends Controller
         $post->body = $request->input('body'); 
         $post->save();
         return redirect('/post')->with('success',"Post Updated successfully !!");
+    }
+
+    public function test()
+    {
+        $post = User::where('name','=','sameh');
+        //var_dump($post);
+
+        $post= User::whereHas(colors, function ($query) {   
+            $query->where('name', 'sameh'); //'color' is the column on the Color table where 'blue' is stored.
+        })->get();
+        var_dump($post->name);
+
+
+       // $test = $post->user;
+        //var_dump($test->password);
+        //var_dump($post);
+        //$test = $post->getUser()->get() ;
+        //var_dump($test->name);
+
     }
 
     /**
