@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use Auth;
+use Image;
 
 class RegisterController extends Controller
 {
@@ -27,6 +31,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
+
+
+
     protected $redirectTo = '/home';
 
     /**
@@ -51,6 +59,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'Council' => ''
         ]);
     }
 
@@ -60,12 +69,36 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+     public function update_avatar(Request $request){
+
+      // Handle the user upload of avatar
+      if($request->hasFile('avatar')){
+        $avatar = $request->file('avatar');
+        $filename = time() . '.' . $avatar->getClientOriginalExtension();
+        Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+
+        $user = Auth::user();
+        $user->avatar = $filename;
+        $user->save();
+      }
+
+     }
+
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'Council' => $data['Council'],
+            'phone' => $data['phone'],
+            'bio' => $data['bio'],
+            'fbLink' => $data['fbLink'],
+            'avatar' => $data['avatar'],
         ]);
     }
+
+
+
 }

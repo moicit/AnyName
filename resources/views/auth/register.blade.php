@@ -61,6 +61,76 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('Council') ? ' has-error' : '' }}">
+                            <label for="Council" class="col-md-4 control-label">Council</label>
+
+                            <div class="col-md-6">
+                                <input id="Council" type="text" class="form-control" name="Council" required>
+
+                                @if ($errors->has('Council'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('Council') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">phone</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="phone" class="form-control" name="phone" required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
+                            <label for="bio" class="col-md-4 control-label">bio</label>
+
+                            <div class="col-md-6">
+                                <input id="bio" type="text" class="form-control" name="bio" required>
+
+                                @if ($errors->has('bio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('fbLink') ? ' has-error' : '' }}">
+                            <label for="fbLink" class="col-md-4 control-label">fbLink</label>
+
+                            <div class="col-md-6">
+                                <input id="fbLink" type="text" class="form-control" name="fbLink" required>
+
+                                @if ($errors->has('fbLink'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fbLink') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
+                            <label for="avatar" class="col-md-4 control-label">avatar</label>
+
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" class="form-control" name="avatar">
+
+                                @if ($errors->has('avatar'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('avatar') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
