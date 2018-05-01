@@ -81,17 +81,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-login">
                 {{-- <div class="panel-heading">Login</div> --}}
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-xs-6 text-center">
-                      <a href="#" id="register-form-link">التسجيل</a>
-                    </div>
-                    <div class="col-xs-6 text-center">
                       <a href="#" class="active" id="login-form-link">الدخول</a>
                     </div>
-
+                    <div class="col-xs-6 text-center">
+                      <a href="#" id="register-form-link">التسجيل</a>
+                    </div>
                   </div>
                 </div>
                 <div class="panel-body">
@@ -99,7 +98,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-2 control-label">الأسم</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -113,7 +112,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-2 control-label">البريد الإلكتروني</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -127,7 +126,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-2 control-label">كلمة السر</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -141,7 +140,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-2 control-label">تأكيد كلمة السر</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -149,7 +148,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('Council') ? ' has-error' : '' }}">
-                            <label for="Council" class="col-md-4 control-label">Council</label>
+                            <label for="Council" class="col-md-2 control-label">المجلس</label>
 
                             <div class="col-md-6">
                                 <input id="Council" type="text" class="form-control" name="Council" required>
@@ -163,7 +162,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">phone</label>
+                            <label for="phone" class="col-md-2 control-label">رقم الهاتف</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="phone" class="form-control" name="phone" required>
@@ -177,7 +176,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
-                            <label for="bio" class="col-md-4 control-label">bio</label>
+                            <label for="bio" class="col-md-2 control-label">التعريف</label>
 
                             <div class="col-md-6">
                                 <input id="bio" type="text" class="form-control" name="bio" required>
@@ -191,7 +190,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('fbLink') ? ' has-error' : '' }}">
-                            <label for="fbLink" class="col-md-4 control-label">fbLink</label>
+                            <label for="fbLink" class="col-md-2 control-label">رابط بروفايل الفيسبوك</label>
 
                             <div class="col-md-6">
                                 <input id="fbLink" type="text" class="form-control" name="fbLink" required>
@@ -219,9 +218,9 @@
                         </div> --}}
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-2">
                                 <button type="submit" class="form-control btn btn-register">
-                                    Register
+                                    تسجيل
                                 </button>
                             </div>
                         </div>
@@ -231,7 +230,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-2 control-label">البريد الإلكتروني</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -245,7 +244,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
+                                <label for="password" class="col-md-2 control-label">كلمة السر</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" required>
@@ -259,23 +258,23 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
+                                <div class="col-md-6 col-md-offset-2">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> تذكرني
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="form-control btn btn-login">
-                                        Login
+                                <div class="col-md-6 col-md-offset-2">
+                                    <button type="submit" class="form-control btn btn-register">
+                                        الدخول
                                     </button>
 
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Forgot Your Password?
+                                        نسيت كلمة السر ؟
                                     </a>
                                 </div>
                             </div>

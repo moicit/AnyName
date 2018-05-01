@@ -13,23 +13,25 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Cairo');
+    </style>
     <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-                <div class="navbar-header pull-right">
+                <div class="navbar-header">
 
                   <!-- Branding Image -->
-                  <a class="navbar-brand" href="{{ url('/') }}">
+                  <a class="" href="{{ url('/') }}">
                       {{-- {{ config('app.name', 'MOIC') }} --}}
                       <img class="navlogo " alt="MOIC" src="{{asset('img/logo.png')}}">
                   </a>
 
                   <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                    <button type="button" style="margin-top:10px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -46,11 +48,10 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right pull-left">
+                    <ul class="nav navbar-nav navbar-right" style="margin-top:10px;">
                         <!-- Authentication Links -->
                         @guest
-                          <li><a href="{{ route('login') }}">الدخول</a></li>
-                          <li><a href="{{ route('register') }}">التسجيل</a></li>
+                          <li><a href="{{ route('login') }}">التسجيل / الدخول</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

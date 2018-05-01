@@ -95,7 +95,6 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'bio' => $data['bio'],
             'fbLink' => $data['fbLink'],
-            'avatar' => $data['avatar'],
         ]);
     }
 
