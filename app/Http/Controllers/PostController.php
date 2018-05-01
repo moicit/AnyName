@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MOIC\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\User;
+use MOIC\Post;
+use MOIC\User;
 
 class PostController extends Controller
 {

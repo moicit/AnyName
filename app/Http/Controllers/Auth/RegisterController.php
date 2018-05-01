@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MOIC\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use MOIC\User;
+use MOIC\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use MOIC\Http\Requests;
 use Auth;
 use Image;
 
@@ -67,7 +67,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \MOIC\User
      */
 
      public function update_avatar(Request $request){

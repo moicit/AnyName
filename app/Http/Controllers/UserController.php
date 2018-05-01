@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MOIC\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use MOIC\Http\Requests;
 use Auth;
 use Image;
 

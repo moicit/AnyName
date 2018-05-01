@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MOIC;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,12 +11,12 @@ class cart extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('MOIC\User');
     }
 
     public function product()
     {
-        return $this->belongsTo('App\Product');
+        return $this->belongsTo('MOIC\Product');
     }
     
 }

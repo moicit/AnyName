@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MOIC\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use MOIC\Http\Controllers\Controller;
 use Auth;
 
 class AdminLoginController extends Controller

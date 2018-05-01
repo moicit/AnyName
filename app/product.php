@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MOIC;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ class products extends Model
 {
     public function product_cart()
     {
-        return $this->hasMany('App\Cart');
+        return $this->hasMany('MOIC\Cart');
     }
 
   
