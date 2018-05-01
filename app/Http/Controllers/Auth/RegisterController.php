@@ -82,7 +82,7 @@ class RegisterController extends Controller
         $user->avatar = $filename;
         $user->save();
       }
-
+      return view('pages.profile', array('user' => Auth::user()) );
      }
 
     protected function create(array $data)

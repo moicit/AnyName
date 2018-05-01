@@ -12,7 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fa-svg-with-js.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     <style>
     @import url('https://fonts.googleapis.com/css?family=Cairo');
     </style>
@@ -53,20 +55,23 @@
                         @guest
                           <li><a href="{{ route('login') }}">التسجيل / الدخول</a></li>
                         @else
+
+                          <li><img src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%"></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                  <img src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
                                   {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                      <li><a href="{{ url('/profile') }}">صفحتي الشخصية</a></li>
+                                      <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             الخروج
                                         </a>
-                                        <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>صفحتي الشخصية</a></li>
+                                      </li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -85,5 +90,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
 </body>
 </html>
