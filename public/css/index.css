@@ -1,0 +1,14 @@
+.container h1
+{
+	text-align:center;
+}
+.image
+{
+	height: 500px;
+	width: 100%;
+}
+
+@font-face {
+   font-family: GE;
+   src: url('GE-SS-Two-Light.otf');
+}

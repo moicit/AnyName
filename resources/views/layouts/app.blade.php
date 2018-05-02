@@ -11,9 +11,23 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fa-svg-with-js.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layerslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-layer-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/slider-layer-slider/skins/fullwidth/skin.css') }}">
+    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/fa-svg-with-js.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('css/custom.css')}}" rel="stylesheet">
+
 
     <style>
     @import url('https://fonts.googleapis.com/css?family=Cairo');
@@ -45,8 +59,9 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" style="margin-top: 10px;">
                         &nbsp;
+                        <li><a href="/home">المدونة</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -88,8 +103,24 @@
     </div>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
-</body>
+    <script src="{{ asset('js/fontawesome-all.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('js/carousel-owl-carousel/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/zoom/jquery.zoom.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-touchspin/bootstrap.touchspin.js') }}"></script>
+    <script src="{{ asset('js/slider-layer-slider/js/greensock.js') }}"></script>
+    <script src="{{ asset('js/slider-layer-slider/js/layerslider.transitions.js') }}"></script>
+    <script src="{{ asset('js/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js') }}"></script>
+    <script src="{{ asset('js/layerSliderTest-init.js') }}"></script>
+    <script src="{{ asset('js/layout.js') }}"></script>
+    <script src="{{ asset('js/needed.js') }}"></script>
+    <script src="{{ asset('js/jquery.noty.packaged.js') }}"></script>
+
+  </body>
 </html>

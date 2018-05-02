@@ -273,7 +273,7 @@
                                         الدخول
                                     </button>
 
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a style="color:#1CA347;" href="{{ route('password.request') }}">
                                         نسيت كلمة السر ؟
                                     </a>
                                 </div>

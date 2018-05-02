@@ -18,7 +18,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth',['except'=>[ 'show','test'] ]);
-        
+
     }
 
 
@@ -32,7 +32,7 @@ class PostController extends Controller
     {
         $all = Post::orderBy('created_at','asc')->paginate(2);
         return view('Post.index')->with('posts', $all );
-        
+
     }
 
     /**
@@ -62,7 +62,7 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->user_id = auth()->user()->id; 
+        $post->user_id = auth()->user()->id;
         $post->save();
         return redirect('/post')->with('success',"Post Created successfully !!");
     }
@@ -108,7 +108,7 @@ class PostController extends Controller
         ]);
         $post = Post::find($id);
         $post->title = $request->input('title');
-        $post->body = $request->input('body'); 
+        $post->body = $request->input('body');
         $post->save();
         return redirect('/post')->with('success',"Post Updated successfully !!");
     }
@@ -118,7 +118,7 @@ class PostController extends Controller
         $post = User::where('name','=','sameh');
         //var_dump($post);
 
-        $post= User::whereHas(colors, function ($query) {   
+        $post= User::whereHas(colors, function ($query) {
             $query->where('name', 'sameh'); //'color' is the column on the Color table where 'blue' is stored.
         })->get();
         var_dump($post->name);
