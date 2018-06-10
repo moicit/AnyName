@@ -12,6 +12,7 @@
 */
 
 Route::resource('post','PostController');
+Route::resource('writer','WriterController');
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
@@ -21,7 +22,6 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::get('/', 'PostController@index');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('profile', 'UserController@profile')->name('profile');

@@ -4,20 +4,19 @@ namespace MOIC;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Writer extends Model
 {
     //
-    protected $table  = 'posts';
+    protected $table  = 'writers';
 
     //primaryKey
     public $primaryKey = 'id';
 
     public $timestamps  = true;
 
-    public function writer()
+    public function posts()
     {
-        return $this->belongsTo('MOIC\Writer');
+        return $this->hasMany('MOIC\Post');
     }
-
     
 }
