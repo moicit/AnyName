@@ -110,7 +110,8 @@ class PostController extends Controller
     {
         //
         $post = Post::find($id);
-        return view('post.update')->with('post',$post);
+        $writer = Writer::find($post->id);
+        return view('post.update')->with(['post'=>$post , 'writer' =>$writer]);
     }
 
     /**
