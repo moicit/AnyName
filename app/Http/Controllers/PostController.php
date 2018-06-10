@@ -4,7 +4,7 @@ namespace MOIC\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MOIC\Post;
-use MOIC\User;
+use MOIC\Writer;
 
 class PostController extends Controller
 {
@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $all = Post::orderBy('created_at','asc')->paginate(2);
+        $all = Post::all();
         return view('Post.index')->with('posts', $all );
 
     }
@@ -55,12 +55,35 @@ class PostController extends Controller
                  //
         $this->validate($request,[
             'title'=>'required',
-            'body' =>'required'
+            'body' =>'required',
+            'tag'  =>'required'
         ]);
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->user_id = auth()->user()->id;
+        $name = $request->input('name');
+        $writer = Writer::where('name',$name)->get();
+        $writer_id = 0;
+        if(count($writer)==1)
+        {
+            $writer_id = $writer[0]['id'];
+        }
+        else
+        {
+            $writer = new Writer;
+            $writer->name = $name;
+            if($request->hasFile('avatar')){
+                $avatar = $request->file('avatar');
+                $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+                $writer->avatar = $filename;
+            }
+            $writer->save();
+            $writer_id = $writer->id;
+
+        }
+        $post->writer_id = $writer_id;
+        $post->tag = $request->input('tag');
         $post->save();
         return redirect('/post')->with('success',"Post Created successfully !!");
     }
