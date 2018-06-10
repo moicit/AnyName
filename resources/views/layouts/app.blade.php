@@ -61,7 +61,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav" style="margin-top: 10px;">
                         &nbsp;
-                        <li><a href="/home">المدونة</a></li>
+                        <li><a href="{{ url('/home') }}">المدونة</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -71,22 +71,21 @@
                           <li><a href="{{ route('login') }}">التسجيل / الدخول</a></li>
                         @else
 
-                          <li><img src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%"></li>
+                            <li><img src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%"></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                  {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ url('/profile') }}">صفحتي الشخصية</a></li>
                                     <li>
-                                      <li><a href="{{ url('/profile') }}">صفحتي الشخصية</a></li>
-                                      <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            الخروج
+                                                        document.getElementById('logout-form').submit();">
+                                            Logout
                                         </a>
-                                      </li>
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -98,8 +97,10 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+            @include('message')
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -121,6 +122,12 @@
     <script src="{{ asset('js/layout.js') }}"></script>
     <script src="{{ asset('js/needed.js') }}"></script>
     <script src="{{ asset('js/jquery.noty.packaged.js') }}"></script>
+
+    {{--   to toolbox Bold italic .. etc   --}}
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace( 'summary-ckeditor' );
+        </script>
 
   </body>
 </html>

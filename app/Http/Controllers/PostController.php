@@ -17,11 +17,9 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except'=>[ 'show','test'] ]);
+        $this->middleware('auth',['except'=>[ 'show'] ]);
 
     }
-
-
 
     /**
      * Display a listing of the resource.
@@ -113,24 +111,6 @@ class PostController extends Controller
         return redirect('/post')->with('success',"Post Updated successfully !!");
     }
 
-    public function test()
-    {
-        $post = User::where('name','=','sameh');
-        //var_dump($post);
-
-        $post= User::whereHas(colors, function ($query) {
-            $query->where('name', 'sameh'); //'color' is the column on the Color table where 'blue' is stored.
-        })->get();
-        var_dump($post->name);
-
-
-       // $test = $post->user;
-        //var_dump($test->password);
-        //var_dump($post);
-        //$test = $post->getUser()->get() ;
-        //var_dump($test->name);
-
-    }
 
     /**
      * Remove the specified resource from storage.

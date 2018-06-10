@@ -20,7 +20,6 @@ Route::prefix('admin')->group(function(){
    Route::get('/dashboard','AdminController@index')->name('admin.dashboard');
 });
 
-Route::get('/send',"MailController@index");
 Route::get('/', 'PostController@index');
 Auth::routes();
 
