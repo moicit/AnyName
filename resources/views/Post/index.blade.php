@@ -7,7 +7,7 @@
                 <h3><a href="post/{{$post->id}}">
                     {{$post->title}} </a></h3>
                 <div class="well">
-                    <p>{!!$post->body!!}</p>
+                    <p>{!!$post->s_body!!}</p>
                 </div>
             <small>Writted in {{$post->created_at}}  by {{   $post->writer->name}}</small>
                 @if(!Auth::guest())

@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except'=>[ 'show'] ]);
+        $this->middleware('auth',['except'=>[ 'show','index'] ]);
 
     }
 
@@ -58,9 +58,19 @@ class PostController extends Controller
             'body' =>'required',
             'tag'  =>'required'
         ]);
+
+        $body = $request->input('body');
+        $x = explode("\n",$body);
+        $c = count($x);
+        $s_body = $x[0];
+        $r_body = "";
+        for ($i=1; $i <$c ; $i++) { 
+            $r_body = $r_body.$x[$i];
+        }
         $post = new Post;
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->s_body = $s_body;
+        $post->r_body = $r_body;
         $name = $request->input('name');
         $writer = Writer::where('name',$name)->get();
         $writer_id = 0;
@@ -97,7 +107,9 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        return Post::find($id);
+        $post = Post::find($id);
+        $writer = Writer::find($post->id);
+        return view('post.show')->with(['post'=>$post , 'writer' =>$writer]);
     }
 
     /**
@@ -126,11 +138,22 @@ class PostController extends Controller
         //
         $this->validate($request,[
             'title'=>'required',
-            'body' =>'required'
+            'body' =>'required',
+            'tag' =>'required'
         ]);
+        $body = $request->input('body');
+        $x = explode("\n",$body);
+        $c = count($x);
+        $s_body = $x[0];
+        $r_body = "";
+        for ($i=1; $i <$c ; $i++) { 
+            $r_body = $r_body.$x[$i];
+        }
         $post = Post::find($id);
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->s_body = $s_body;
+        $post->r_body = $r_body;
+        $post->tag = $request->input('tag');
         $post->save();
         return redirect('/post')->with('success',"Post Updated successfully !!");
     }

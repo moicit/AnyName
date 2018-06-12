@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Update Post </h1>
-    {!! Form::open(['action' => ['PostController@update',$post->id] , 'method' => 'post']) !!}
+    {!! Form::open([]) !!}
         <div class="form-group">
             {{Form::label('', 'Name')}}
             {{Form::text('name',$writer->name,['class' => "form-control" ])}}
@@ -22,10 +22,8 @@
             {{Form::text('tag',$post->tag,['class' => "form-control" ])}}
         </div>
         <div class="form-group">
-                {{Form::label('', 'Body')}}
-                {{Form::textarea('body',$post->s_body.$post->r_body,['id'=>'summary-ckeditor','class' => "form-control" ])}}
+            {{Form::label('', 'Body')}}
+            {{Form::textarea('body',$post->s_body.$post->r_body,['id'=>'summary-ckeditor','class' => "form-control" ])}}
         </div>
-        {{Form::hidden('_method','PUT')}}
-        {{Form::submit('update' ,['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection
